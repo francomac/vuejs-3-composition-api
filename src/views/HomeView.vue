@@ -11,6 +11,9 @@
       <h4>Edit Counter Title:</h4>
       <input v-model="counterData.title" type="text" />
     </div>
+    <div class="footer">
+      <p>{{ disclaimer }}</p>
+    </div>
   </div>
 </template>
 
@@ -25,6 +28,8 @@ const counterData = reactive({
   count: 0,
   title: 'the Counter'
 })
+
+const disclaimer = 'this is a non-reactive value'
 
 const increaseCounter = () => {
   counterData.count++
@@ -45,7 +50,8 @@ const decreaseCounter = () => {
   font-size: 40px;
   margin: 10px;
 }
-.edit {
+.edit,
+.footer {
   margin-top: 60px;
 }
 </style>
