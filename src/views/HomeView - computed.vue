@@ -44,6 +44,25 @@ const decreaseCounter = (amount) => {
 }
 </script>
 
+<!--
+<script>
+export default {
+  data() {
+    return {
+      counterData: {
+        count: 0
+      }
+    }
+  },
+  computed: {
+    myCompProp() {
+      return 'any result'
+    }
+  }
+}
+</script>
+-->
+
 <style>
 .home {
   text-align: center;
