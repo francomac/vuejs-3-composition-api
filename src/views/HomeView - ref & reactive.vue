@@ -34,6 +34,7 @@ const counterData = reactive({
 const disclaimer = 'this is a non-reactive value'
 
 const increaseCounter = (amount, e) => {
+  console.log(e)
   counterData.count += amount
 }
 
