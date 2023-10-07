@@ -26,7 +26,19 @@
   imports
 */
 
-import { reactive, computed, watch, onMounted } from 'vue'
+import {
+  reactive,
+  computed,
+  watch,
+  onBeforeMount,
+  onMounted,
+  onBeforeUnmount,
+  onUnmounted,
+  onActivated,
+  onDeactivated,
+  onBeforeUpdate,
+  onUpdated
+} from 'vue'
 
 /*
   app title
@@ -68,6 +80,35 @@ const increaseCounter = (amount, e) => {
 const decreaseCounter = (amount) => {
   counterData.count -= amount
 }
+
+onBeforeMount(() => {
+  console.log('onBeforeMount')
+})
+
+onMounted(() => {
+  console.log('onMounted')
+})
+
+onBeforeUnmount(() => {
+  console.log('onBeforeUnMount')
+})
+onUnmounted(() => {
+  console.log('onUnmounted')
+})
+
+onActivated(() => {
+  console.log('onActivated')
+})
+onDeactivated(() => {
+  console.log('onDeactivate')
+})
+
+onBeforeUpdate(() => {
+  console.log('onBeforeUpdate')
+})
+onUpdated(() => {
+  console.log('onUpdated')
+})
 </script>
 
 <!--
