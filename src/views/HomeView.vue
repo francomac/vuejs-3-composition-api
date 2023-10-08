@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h2>{{ appTitle }}</h2>
+    <h2 ref="appTitleRef">{{ appTitle }}</h2>
 
     <h3>{{ counterData.title }}:</h3>
 
@@ -26,7 +26,7 @@
   imports
 */
 
-import { reactive, computed, watch, onMounted } from 'vue'
+import { ref, reactive, computed, watch, onMounted, nextTick } from 'vue'
 import { vAutofocus } from '@/directives/vAutofocus'
 
 /*
@@ -35,8 +35,10 @@ import { vAutofocus } from '@/directives/vAutofocus'
 
 const appTitle = 'My Ok Counter App'
 
+const appTitleRef = ref(null)
+
 onMounted(() => {
-  console.log('Do stuff related to App Title')
+  console.log(`The app title is ${appTitleRef.value.offsetWidth} px wide!`)
 })
 
 /*
@@ -62,9 +64,19 @@ const oddOrEven = computed(() => {
   return 'odd'
 })
 
-const increaseCounter = (amount, e) => {
+const increaseCounter = async (amount, e) => {
   counterData.count += amount
+  await nextTick()
+  console.log('do something when counter has updated in the dom')
 }
+
+// another way to use nextTick
+// const increaseCounter = (amount, e) => {
+//   counterData.count += amount
+//   nextTick(() => {
+//     console.log('do something when counter has updated in the dom')
+//   })
+// }
 
 const decreaseCounter = (amount) => {
   counterData.count -= amount
