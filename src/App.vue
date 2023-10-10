@@ -1,4 +1,6 @@
 <template>
+  <div class="user-data">{{ userData.name }} @{{ userData.username }}</div>
+
   <nav>
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/modals">Modals</RouterLink>
@@ -7,6 +9,25 @@
 
   <RouterView />
 </template>
+
+<script setup>
+/*
+  imports
+*/
+
+import { reactive, provide } from 'vue'
+
+/*
+  user data
+*/
+
+const userData = reactive({
+  name: 'Danny',
+  username: 'dannyconnell'
+})
+
+provide('userData', userData)
+</script>
 
 <style>
 @import '@/assets/base.css';
@@ -65,5 +86,16 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+
+.user-data {
+  position: relative;
+  background: beige;
+  color: #333;
+  width: 200px;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+  padding: 5px;
 }
 </style>

@@ -38,6 +38,9 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue'])
 
+const handleButtonClick = () => {
+  emit('update:modelValue', false)
+}
 /*
   user data
 */
@@ -48,6 +51,7 @@ const userData = inject('userData')
 <style>
 .modal {
   background: beige;
+  color: #333;
   padding: 10px;
   position: absolute;
   left: 0;
