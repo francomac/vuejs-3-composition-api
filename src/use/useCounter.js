@@ -1,5 +1,8 @@
 import { reactive, computed, watch, onMounted, nextTick } from 'vue'
 
+// having this object our of useConter obj, will turn this obj a
+// global obj that will be available for the whole app. otherwise,
+// this obj state will reset after every page change or after a redirect.
 const counterData = reactive({
   count: 0,
   title: 'My Counter'
