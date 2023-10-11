@@ -5,7 +5,15 @@ export const useCounterStore = defineStore({
   state: () => ({
     count: 1,
     title: 'My Counter Title'
-  })
+  }),
+  actions: {
+    increaseCounter(amount) {
+      this.count += amount
+    },
+    decreaseCounter(amount) {
+      this.count -= amount
+    }
+  }
 })
 
 // make sure to pass the right store definition, `useAuth` in this case.
